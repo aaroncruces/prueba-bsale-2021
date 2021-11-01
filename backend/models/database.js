@@ -1,2 +1,5 @@
-import getTableAsObjectPromise from "./mysql.js"
-export default getTableAsObjectPromise
+/**
+ * Interfaces between the mysql database and a database user
+ */
+import {getTableAsObjectPromise} from "./mysql.js"
+export {getTableAsObjectPromise}

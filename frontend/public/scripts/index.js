@@ -2,6 +2,9 @@ import {createCategoriesElement } from "./view/category.js"
 import {categoryListPromise} from "./model/categories.js"
 import {productListByCategoryPromise} from "./model/products.js"
 
+/**
+ * renders the products in the content section of the webpage
+ */
 const renderContent=async ()=>{
   //1: fetch only categories
   const element_content = document.getElementById("content")
@@ -20,4 +23,5 @@ const renderContent=async ()=>{
   console.log(categoryListWithProductListResolved)
   element_content.appendChild(createCategoriesElement(categoryListWithProductListResolved))
 }
+
 renderContent()

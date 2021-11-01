@@ -3,9 +3,9 @@ import {
 } from "./product.js"
 
 /**
- * 
+ * Geneates a container to display the products organized in categories
  * @param {object} categoryObjectListWithProductListAttached  an object with {...category, productList:[products]}
- * @returns 
+ * @returns HTML element accordeon bootstrap
  */
 const createCategoriesAccordionElement = (categoryObjectListWithProductListAttached) => {
     const categoriesAccordionNode = document.createElement("div");
@@ -31,6 +31,8 @@ const createCategoriesAccordionElement = (categoryObjectListWithProductListAttac
     return categoriesAccordionNode
 }
 
+// Helper method to generate an accordion container
+// generates the header
 const createAccordionCollapseHeaderElement = (headerText, idBody, idHeader) => {
     const accordionHeaderNode = document.createElement("h2");
     accordionHeaderNode.classList.add("accordion-header")
@@ -50,6 +52,8 @@ const createAccordionCollapseHeaderElement = (headerText, idBody, idHeader) => {
 
 }
 
+// Helper method to generate an accordion container
+// generates the body
 const createAccordionCollapseBodyElement = (contentElementNode, idBody, idHeader, idAccordionParent) => {
     const accordionCollapseNode = document.createElement("div");
     accordionCollapseNode.classList.add("accordion-collapse")
@@ -69,4 +73,4 @@ const createAccordionCollapseBodyElement = (contentElementNode, idBody, idHeader
 }
 
 
-export const createCategoriesElement = createCategoriesAccordionElement
+export {createCategoriesAccordionElement as createCategoriesElement}

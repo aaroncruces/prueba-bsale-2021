@@ -7,7 +7,7 @@
     "scripts": {
         "dev-backend": "nodemon backend/server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev-frontend": "web-dev-server --node-resolve --watch --open --app-index frontend/index.html"
+        "dev-frontend": "web-dev-server --node-resolve --watch --open --app-index frontend/public/index.html"
     },
     "author": "aaron cruces",
     "license": "ISC",
@@ -19,5 +19,10 @@
         "@web/dev-server": "^0.1.25",
         "cors": "^2.8.5",
         "nodemon": "^2.0.14"
-    }
+    },
+    "to-consider":[
+        "to use web-dev-server  and nodemon at the same time, you must add app.use(cors()) in the backend, { mode: 'cors'} in the frontend wheb you fetch, and crossorigin=anonymous in the html script tag. also, const SERVER_URL = 'http://localhost:3000' has to be set as the server api to request json",
+        "mysql.createPool in the models/mysql module must be changed to satisfy the development needs",
+        "app.listen(3000) must be set to develop locally"
+    ]
 }

@@ -1,52 +1,65 @@
 import express from "express"
-import cors from "cors"
 import {getProductListPromise,getProductListPromiseByCategoryId} from "./models/products.js"
 import {getCategoryListPromise,getCategoryPromise} from "./models/categories.js"
 
 const app = express()
-app.use(express.static('frontend'));
+app.use(express.static('frontend/public'));
 
-//temporary use since I require to use a frontend dev server that is update every time i make a change
-app.use(cors())
-
+/**
+ * Obtains all the products as a json object
+ */
 app.get("/api/products", async(req, res) => {
     try {
         const resultElements = await getProductListPromise();
         res.status(200).json(resultElements);
     } catch (e) {
-        res.sendStatus(500);
+        res.status(500).sendFile("500.html",{root:"frontend/exceptions"});
     }
 })
 
+/**
+ * Obtains all the products belonging to a category
+ */
 app.get("/api/products/category/:categoryId", async(req, res) => {
     try {
         const resultElements = await getProductListPromiseByCategoryId(req.params.categoryId);
         res.status(200).json(resultElements);
     } catch (e) {
-        res.sendStatus(500);
+        res.status(500).sendFile("500.html",{root:"frontend/exceptions"});
     }
 })
 
 /**
- * todo:
- * validate params
+ * Obtains a category by id
  */
  app.get("/api/categories/:categoryId", async (req, res) => {
     try {
         const resultElements = await getCategoryPromise(req.params.categoryId);
         res.status(200).json(resultElements);
     } catch (e) {
-        res.sendStatus(500);
+        res.status(500).sendFile("500.html",{root:"frontend/exceptions"});
     }
 })
 
+/**
+ * Obtains all the categories as a json object
+ */
 app.get("/api/categories", async (req, res) => {
     try {
         const resultElements = await getCategoryListPromise();
         res.status(200).json(resultElements);
     } catch (e) {
-        res.sendStatus(500);
+        res.status(500).sendFile("500.html",{root:"frontend/exceptions"});
     }
 })
 
-app.listen(3000)
+/**
+ * 404 error handling
+ */
+app.get("*", async (req, res) => {
+    res.status(404).sendFile("404.html",{root:"frontend/exceptions"});
+})
+
+app.listen(80, () => {
+    console.log("listening")
+  })

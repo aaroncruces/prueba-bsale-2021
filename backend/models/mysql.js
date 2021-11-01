@@ -1,18 +1,22 @@
 import mysql from "mysql"
-import password from "./secret.js"
+
+/**
+ * Database initialization
+ */
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: password,
+    host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
+    user: 'bsale_test',
+    password: "bsale_test",
     database: 'bsale_test'
 });
 
 /**
- * Returns a promise containing the result as an object
+ * Returns a promise containing the result as an object or an array
+ * the sql must be provided
  * @param {string} SQLQuery 
  * @returns Promise of the object with the database data
  */
-const getTableAsObjectPromise=(SQLQuery)=>
+ export const getTableAsObjectPromise=(SQLQuery)=>
      new Promise((resolve, reject) => {
         pool.query(SQLQuery, (error, elements) => {
             if (error) {
@@ -21,5 +25,3 @@ const getTableAsObjectPromise=(SQLQuery)=>
             return resolve(elements);
         });
     });
-
-export default getTableAsObjectPromise
