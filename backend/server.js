@@ -1,11 +1,14 @@
 import express from "express"
+import cors from "cors"
 import {getProductListPromise,getProductListPromiseByCategoryId} from "./models/products.js"
 import {getCategoryListPromise,getCategoryPromise} from "./models/categories.js"
-//import { products } from "./models/products.js"
 
-const apiRouter = express.Router();
 const app = express()
 app.use(express.static('frontend'));
+
+//temporary use since I require to use a frontend dev server that is update every time i make a change
+app.use(cors())
+
 app.get("/api/products", async(req, res) => {
     try {
         const resultElements = await getProductListPromise();
@@ -14,6 +17,7 @@ app.get("/api/products", async(req, res) => {
         res.sendStatus(500);
     }
 })
+
 app.get("/api/products/category/:categoryId", async(req, res) => {
     try {
         const resultElements = await getProductListPromiseByCategoryId(req.params.categoryId);
