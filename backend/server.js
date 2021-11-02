@@ -40,7 +40,8 @@ app.get("", async (req, res) => {
         if (req.query.name) 
         filteredProducts=filterProductListByName(req.query.name,filteredProducts);
 
-        res.status(200).json(filteredProducts);
+        res.status(200).json(req.query);
+        //res.status(200).json(filteredProducts);
     } catch (e) {
 
         res.status(500).json(e);
