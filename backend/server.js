@@ -60,6 +60,8 @@ app.get("*", async (req, res) => {
     res.status(404).sendFile("404.html",{root:"frontend/exceptions"});
 })
 
-app.listen(3000, () => {
-    console.log("listening")
-  })
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, err => {
+    if(err) throw err;
+    console.log("%c Server running", "color: green");
+});
