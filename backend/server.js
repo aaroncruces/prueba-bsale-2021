@@ -42,7 +42,6 @@ app.get("", async (req, res) => {
 
         res.status(200).json(filteredProducts);
     } catch (e) {
-        console.log(e);
         res.status(500).sendFile("500.html", {
             root: "frontend/exceptions"
         });
@@ -103,5 +102,5 @@ app.get("*", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, err => {
     if (err) throw err;
-    console.log("%clistening", "color: green");
+    console.log("%clistening on "+PORT, "color: green");
 });

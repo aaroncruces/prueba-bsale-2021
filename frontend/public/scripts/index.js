@@ -9,9 +9,6 @@ import {
   producListBynameFilterPromise
 } from "./model/products.js"
 
-// const url= new URL(window.location.href)
-// url.name="ron"
-// console.log(url)
 
 /**
  * renders the products in the content section of the webpage
@@ -38,6 +35,9 @@ const renderContent = async () => {
 }
 renderContent()
 
+/**
+ * renders search results by name
+ */
 document.getElementById("search-button").addEventListener("click", async () => {
   const searchText = document.getElementById("search-input").value.trim()
   const contentAreaElement = document.getElementById("content")
@@ -55,6 +55,10 @@ document.getElementById("search-button").addEventListener("click", async () => {
 
 });
 
+/**
+ * cleans every child node of an element
+ * @param {*} htmlNodeElement 
+ */
 const cleanElement = (htmlNodeElement) => {
   while (htmlNodeElement.firstChild) {
     htmlNodeElement.removeChild(htmlNodeElement.lastChild);
