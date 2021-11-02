@@ -35,13 +35,17 @@ const renderContent = async () => {
 }
 renderContent()
 
+
+
+//document.getElementById("search-button").addEventListener("click",getResultsByName);
 /**
  * renders search results by name
  */
-document.getElementById("search-button").addEventListener("click", async () => {
+ const getResultsByName= async (event) => {
+  event.preventDefault();
   const searchText = document.getElementById("search-input").value.trim()
   const contentAreaElement = document.getElementById("content")
-
+  
   //1, Am I really searching?
   if (!searchText) return;
 
@@ -53,8 +57,7 @@ document.getElementById("search-button").addEventListener("click", async () => {
   cleanElement(contentAreaElement)
   contentAreaElement.appendChild(createCategoriesElement(searchItemCategoryContainer))
 
-});
-
+}
 /**
  * cleans every child node of an element
  * @param {*} htmlNodeElement 
@@ -64,3 +67,7 @@ const cleanElement = (htmlNodeElement) => {
     htmlNodeElement.removeChild(htmlNodeElement.lastChild);
   }
 }
+
+document.getElementById("search-form").onsubmit=getResultsByName
+document.getElementById("search-button").onsubmit=getResultsByName
+document.getElementById("search-input").onsubmit=getResultsByName
