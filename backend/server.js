@@ -34,21 +34,17 @@ app.get("", async (req, res) => {
  */
  app.get("/api/products/search", async (req, res) => {
     try {
-        console.log("0- try");
         let filteredProducts = await getProductListPromise();
-        console.log("1- got all products");
-        console.log("2- parameter:"+ JSON.stringify(req.query));
+  
         //only name is implemented
         if (req.query.name) 
         filteredProducts=filterProductListByName(req.query.name,filteredProducts);
-        console.log("3- filtered:");
 
-        res.status(200).json(req.query);
         res.status(200).json(filteredProducts);
     } catch (e) {
-        // res.status(500).sendFile("500.html", {
-        //     root: "frontend/exceptions"
-        // });git push -u origin master 
+        res.status(500).sendFile("500.html", {
+            root: "frontend/exceptions"
+        })
     }
 })
 
