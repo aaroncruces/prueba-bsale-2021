@@ -49,7 +49,6 @@ document.getElementById("search-button").addEventListener("click", async () => {
   const productsFilteredByName=await producListBynameFilterPromise(searchText)
   const searchItemCategoryContainer=[{id:0,name:"Resultados de la busqueda",productList:productsFilteredByName}]
 
-  console.log(JSON.stringify(searchItemCategoryContainer,null,2))
   //3: render
   cleanElement(contentAreaElement)
   contentAreaElement.appendChild(createCategoriesElement(searchItemCategoryContainer))
