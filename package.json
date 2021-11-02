@@ -21,6 +21,9 @@
         "@web/dev-server": "^0.1.25",
         "nodemon": "^2.0.14"
     },
+    "engines": {
+        "node": "17.0.1"
+    },
     "to-consider":[
         "to use web-dev-server  and nodemon at the same time, you must add app.use(cors()) in the backend, { mode: 'cors'} in the frontend wheb you fetch, and crossorigin=anonymous in the html script tag. also, const SERVER_URL = 'http://localhost:3000' has to be set as the server api to request json",
         "mysql.createPool in the models/mysql module must be changed to satisfy the development needs",
