@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "start":"node backend/server.js",
-        "dev-backend": "nodemon backend/server.js",
+        "dev-backend": "NODE_ENV=devel nodemon backend/server.js ",
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev-frontend": "web-dev-server --node-resolve --watch --open --app-index frontend/public/index.html"
     },

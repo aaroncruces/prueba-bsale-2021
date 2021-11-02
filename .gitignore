@@ -1,4 +1,4 @@
 devel_misc
 node_modules
 package-lock.json
-backend/models/secret.js
+backend/models/secret.json
