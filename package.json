@@ -13,12 +13,12 @@
     "author": "aaron cruces",
     "license": "ISC",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.1",
         "mysql": "^2.18.1"
     },
     "devDependencies": {
         "@web/dev-server": "^0.1.25",
-        "cors": "^2.8.5",
         "nodemon": "^2.0.14"
     },
     "to-consider":[
