@@ -60,6 +60,6 @@ app.get("*", async (req, res) => {
     res.status(404).sendFile("404.html",{root:"frontend/exceptions"});
 })
 
-app.listen(80, () => {
+app.listen(3000, () => {
     console.log("listening")
   })
