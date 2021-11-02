@@ -42,11 +42,11 @@ app.get("", async (req, res) => {
 
         res.status(200).json(filteredProducts);
     } catch (e) {
-        console.log(e)
-        res.status(500).send(e);
-        res.status(500).sendFile("500.html", {
-            root: "frontend/exceptions"
-        });
+
+        res.status(500).json(e);
+        // res.status(500).sendFile("500.html", {
+        //     root: "frontend/exceptions"
+        // });
     }
 })
 
