@@ -4,6 +4,10 @@ Esta es una prueba para demostrar habilidades en la creacion de sistemas fullsta
 Codigo desarrollado en ingles, para seguir con el espiritu de la nomenclatura de la base de datos
 Pagina web desarrollada en español, para seguir con la nomenclatura del pdf, y del contenido de la base de datos
 
+### Sitio Web
+La url del proyecto se encuentra en
+https://pruebaaroncr.herokuapp.com/
+
 ### Diseño
 Este proyecto está diseñado usando
 - expressjs 
